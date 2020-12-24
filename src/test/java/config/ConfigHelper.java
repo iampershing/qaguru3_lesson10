@@ -21,6 +21,7 @@ public class ConfigHelper {
     public static String getWebDriverRemoteURL() {return  getConfig().webDriverRemoteURL();}
 
     private static WebConfig getConfig() {
+        if (System.getProperty("environment") == null) System.setProperty("environment", "local");
 
         return ConfigFactory.newInstance().create(WebConfig.class, System.getProperties());
     }
