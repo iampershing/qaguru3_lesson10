@@ -1,27 +1,28 @@
 package config;
 
 import org.aeonbits.owner.Config;
-    @Config.LoadPolicy(Config.LoadType.MERGE)
-    @Config.Sources({
-            "system:properties",
-            "classpath:${environment}.properties"
-    })
-    public interface WebConfig extends Config {
-        @Key("search.item")
-        String searchItem();
 
-        @Key("search.result")
-        String searchResult();
+@Config.LoadPolicy(Config.LoadType.MERGE)
+@Config.Sources({
+        "system:properties",
+        "classpath:${environment}.properties"
+})
+public interface WebConfig extends Config {
+    @Key("search.item")
+    String searchItem();
 
-        @Key("baseUrl")
-        String baseUrl();
+    @Key("search.result")
+    String searchResult();
 
-        @Key("browser.name")
-        String browserName();
+    @Key("baseUrl")
+    String baseUrl();
 
-        @Key("browser.version")
-        String browserVersion();
+    @Key("browser.name")
+    String browserName();
 
-        @Key("webDriver.remote.url")
-        String webDriverRemoteURL();
-    }
+    @Key("browser.version")
+    String browserVersion();
+
+    @Key("webDriver.remote.url")
+    String webDriverRemoteURL();
+}

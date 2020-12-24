@@ -1,7 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import config.ConfigHelper;
+import config.WebConfigHelper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -15,17 +15,17 @@ public class WebTests {
     @BeforeAll
     static void setup() {
         Configuration.startMaximized = true;
-        Configuration.browser = ConfigHelper.getBrowserName();
-        Configuration.browserVersion = ConfigHelper.getBrowserVersion();
-        Configuration.remote = ConfigHelper.getWebDriverRemoteURL();
+        Configuration.browser = WebConfigHelper.getBrowserName();
+        Configuration.browserVersion = WebConfigHelper.getBrowserVersion();
+        Configuration.remote = WebConfigHelper.getWebDriverRemoteURL();
     }
 
 
     @Test
     void selenideSearchInChrome() {
-        String searchItem = ConfigHelper.getSearchItem();
-        String searchResult = ConfigHelper.getSearchResult();
-        String baseURL = ConfigHelper.getBaseUrl();
+        String searchItem = WebConfigHelper.getSearchItem();
+        String searchResult = WebConfigHelper.getSearchResult();
+        String baseURL = WebConfigHelper.getBaseUrl();
 
         open(baseURL);
         $(byName("q")).setValue(searchItem).pressEnter();
